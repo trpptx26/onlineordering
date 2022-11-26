@@ -183,6 +183,11 @@ use LDAP\Result;
             }
 
             if(isset($_POST["checkout"])){
+                $total_bills = $_POST["total_bills"];
+                $total_quantity = $_POST["total_quantity"];
+                $query = "insert into checkout(total_bills,total_quantity) values ('$total_bills' , '$total_quantity')";
+                $run = mysqli_query($conn,$query); 
+
                 echo '
                 <script>
                 window.location.href = "checkout.php";
@@ -471,7 +476,8 @@ use LDAP\Result;
                         <h2>Bills</h2>
 
                         <label for="total_bills">Total Bills:</label>
-                        <input type="text" name="total_bills" value="<?php echo($total_bills);?>"><br>
+                        <input type="text" name="total_bills" value="<?php echo($total_bills);
+                        ?>"><br>
                         <label for="total_quantity">Total Quantity:</label>
                         <input type="text" name="total_quantity" value="<?php echo($total_quantity);?>"><br>
                         <label for="cash_given">Cash Given:</label>
