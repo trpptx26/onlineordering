@@ -59,7 +59,7 @@
                 else
                 $query = "insert into customer(email,first_name,last_name,birthday,username,password) values ('$email' , '$first_name','$last_name','$birthday','$username','$password')";
                 $run = mysqli_query($conn,$query); 
-                echo '<script>alert("Register Successfully")</script>';
+                echo '<script>alert("Register Successfully"); window.location.href = "Login.php";</script>';
         }
     }
 
