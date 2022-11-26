@@ -1,0 +1,101 @@
+body {
+    background-color: #1a2537;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -2px;
+}
+
+div {
+    padding: 4px;
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #ad9976;
+
+    width: 200px;
+    display: inline-block;
+    padding-bottom: 7px;
+}
+
+input[type=image] {
+    border: 1px solid #ad9976;
+    background-color: white;
+    height: 150px;
+    width: 150px;
+}
+
+#choose_file_button {
+    margin-top: 100px;
+}
+
+.subform {
+    padding: 10px;
+    margin-bottom: 4px;
+    border: 2px solid #ad9976;
+    min-width: 385px;
+    max-width: 385px;
+}
+
+input[type=text] {
+    border: 1px solid #ad9976;
+}
+
+input[type=text]:read-only {
+    background-color: rgb(180, 180, 180);
+}
+
+.flex_container_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_container_column {
+    display: flex;
+    flex-direction: column;
+}
+
+#mid_column, #right_column {
+    margin-top: 30px;
+}
+
+input[type="submit"] {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    background-color: #ad9976;
+}
+
+/* Ordering Application */
+
+#store img {
+    height: 140px;
+    width: 240px;
+    margin-bottom: 7px;
+    border: 1px solid #ad9976;
+    background-color: white;
+}
+
+#store input[type="submit"] {
+    text-align: left;
+    border-color: #ad9976;
+    background-color: rgb(180, 180, 180);
+}
+
+.item_column {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#button_bar {
+    justify-content: center;
+}
+
+#button_bar input[type="submit"] {
+    margin-inline: 10px;
+}
