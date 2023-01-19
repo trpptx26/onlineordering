@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Payroll</title>
-    <link rel="stylesheet" href="eps.css">
+    <link rel="stylesheet" href="style.css">
     <!-- font style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -283,6 +283,18 @@
                 $valid_employee_number = $invalid_employee_number;
             }    
         }
+        if(isset($_POST["employee_list"])){
+            echo '
+            <script>
+            window.location.href = "employee_list.php";
+            </script>';
+        }
+        if(isset($_POST["logout"])){
+            echo '
+                <script>
+                window.location.href = "administrator_login.php";
+                </script>';
+          }
     ?>
     <div class="flex_container" id="main_container">
         
@@ -293,16 +305,23 @@
             </div>
             <div class="subform" id="employee_basic_info">
                     <div>
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                            <div class="flex_container">
-                                <div>
-                                    <input type="image" value="<?php echo ($image)?>"><br>
-                                </div>
-                                <div style="margin-top: 130px;">
-                                    <input name="image" type="submit" value="Choose File">
-                                </div>
-                            </div>
+                        <form>
+                            <img id="preview" width="200" height="200">
+                            <br>
+                            <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+                            <br>
                         </form>
+                        <script>
+                          function previewImage(event) {
+                            var preview = document.getElementById('preview');
+                            var image = event.target.files[0];
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                preview.src = reader.result;
+                            }
+                            reader.readAsDataURL(image);
+                            }
+                        </script>
                     </div>                   
                 </div>
             <form action="" method="post">
@@ -315,7 +334,7 @@
                     echo($valid_employee_number);
                     ?>" required><br>
 
-                    <label for="department">First Name:</label>
+                    <label for="department">Department:</label>
                     <input type="text" value="<?php echo($department);?>" readonly><br>
 
                     <label for="first_name">First Name:</label>
@@ -432,6 +451,10 @@
                 <input name="cancel" type="submit" value="CANCEL">
                 <input name="close" type="submit" value="CLOSE">
             </div>
+            </form>
+            <form action="" method="post">
+                <input name="employee_list" type="submit" value="Employee List">
+                <input name="logout" type="submit" value="Logout">
             </form>
         </div>
     </div>
