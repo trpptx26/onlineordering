@@ -49,6 +49,20 @@
                   values ('$employee_number','$department','$first_name','$middle_name','$last_name','$civil_status','$designation','$paydate','$employee_status','$qualified_dependents_status')";
         $run = mysqli_query($conn,$query); 
       }
+
+      if(isset($_POST["employee_payroll"])){
+        echo '
+            <script>
+            window.location.href = "employee_payroll.php";
+            </script>';
+      }
+
+      if(isset($_POST["logout"])){
+        echo '
+            <script>
+            window.location.href = "administrator_login.php";
+            </script>';
+      }
      ?>
     
     <div>
@@ -93,25 +107,22 @@
                 <h3>Personal info</h3>
                 <div>                 
                     <div>
-                        <input type="file" id="image-input" onchange="previewImage()" />
-                        <img id="image-preview" src="#" alt="Image Preview" style="display: none;"/>
-                    
+                        <form>
+                            <img id="preview" width="200" height="200">
+                            <br>
+                            <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+                            <br>
+                        </form>
                         <script>
-                          function previewImage() {
-                        var preview = document.getElementById('image-preview');
-                        var file    = document.getElementById('image-input').files[0];
-                        var reader  = new FileReader();
-                    
-                        reader.onloadend = function () {
-                        preview.src = reader.result;
-                        }
-                        if (file) {
-                        preview.style.display = "block";
-                        reader.readAsDataURL(file);
-                        } else {
-                        preview.style.display = "none";
-                        }
-                        }
+                          function previewImage(event) {
+                            var preview = document.getElementById('preview');
+                            var image = event.target.files[0];
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                preview.src = reader.result;
+                            }
+                            reader.readAsDataURL(image);
+                            }
                         </script>
                         
                         <label for="first_name">First Name:</label>
@@ -435,8 +446,13 @@
                 </div>
             </div>
 
-            <input name="confirm" type="submit" value="Save" id="big_button">
+            <input name="confirm" type="submit" value="Save">
             <input type="reset">
+            <br>
+        </form>
+        <form action="" method="post">
+            <input name="employee_payroll" type="submit" value="Employee Payroll">
+            <input name="logout" type="submit" value="Logout">
         </form>
     </div>
 </body>
