@@ -71,7 +71,7 @@
         $total_deductions = "";
 
 
-        $conn = new mysqli('localhost','root','','employee');
+        $conn = new mysqli('localhost','root','','employees');
         $sql = "SELECT * FROM employee";    
         $result = mysqli_query($conn, $sql);
         $row = $result->fetch_assoc();
@@ -458,6 +458,5 @@
             </form>
         </div>
     </div>
-    
 </body>
 </html>
