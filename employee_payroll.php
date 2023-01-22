@@ -71,7 +71,7 @@
         $total_deductions = "";
 
 
-        $conn = new mysqli('localhost','root','','employees');
+        $conn = new mysqli('localhost','root','','employee');
         $sql = "SELECT * FROM employee";    
         $result = mysqli_query($conn, $sql);
         $row = $result->fetch_assoc();
