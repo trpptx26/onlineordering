@@ -72,12 +72,6 @@
                 $total_bills = $row2["total_bills"];
                 $total_quantity = $row2["total_quantity"];
 
-                //ongoing database programming
-                $sql = "SELECT * FROM orderingapplication WHERE = 'Black Sandals'";    
-                $result = mysqli_query($conn, $sql);
-                $check_black_sandals = $result->fetch_assoc();
-                //ongoing database programming
-
                 //get product name from database orderingapplication
                 $product_name = $row3["product_name"];
                 //calculate total with shipping fe
