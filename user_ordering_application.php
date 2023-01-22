@@ -218,6 +218,13 @@ use LDAP\Result;
                 </script>';
             }
 
+            if(isset($_POST["back"])){
+                echo '
+                <script>
+                window.location.href = "administrator_browser.php";
+                </script>';
+            }
+
         ?>
 
         <form action="" method="post" >
@@ -632,6 +639,8 @@ use LDAP\Result;
                         <input name="checkout" type="submit" value="CHECKOUT">
                         <!-- button for logout and will b redirected to login site-->
                         <input name="logout" type="submit" value="LOGOUT">
+
+                        <input name="back" type="submit" value="BACK">
                     </div>
                 </div>
             </div>
