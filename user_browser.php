@@ -5,7 +5,7 @@
 </head>
 <body>
     <?php
-    $conn = new mysqli('localhost','root','','employees');
+    $conn = new mysqli('localhost','root','','employee');
     $quantity = 0;
 
     if(isset($_POST["logout"])){
