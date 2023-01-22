@@ -53,7 +53,7 @@
                     echo '
                     <script>
                     alert("Login Successfully");
-                    window.location.href = "user_ordering_application.php";
+                    window.location.href = "user_browser.php";
                     </script>';
                 }
                 //if password dosnt match with the valid username
@@ -73,6 +73,13 @@
             </script>';
         }
 
+        if (isset($_POST["back"])){
+            echo '
+                <script>
+                window.location.href = "administrator_browser.php";
+                </script>';
+        }
+
         ?>
         <div class="center_form">
             <img src="https://i.imgur.com/ZamKnxw.png" alt="Casan's Footwear Logo" width="400">
@@ -83,7 +90,8 @@
                     <input type="text" name="username" value="<?php $username = readline() ;?>"><br>
                     <!--Get password -->
                     <label for="password">Password:</label>
-                    <input type="password" name="password" value="<?php $password = readline();?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="8 or more Character, Atleast 1 Capital Letter, Atleast 1 Special Character, Atleast 1 Number">><br>
+                    <input type="password" name="password" value="<?php $password = readline();?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="8 or more Character, Atleast 1 Capital Letter, Atleast 1 Special Character, Atleast 1 Number">><br>
                     <br>
                     <!--Log In button -->
                     <input name="log_in" type="submit" value="Log In" id="big_button">
@@ -92,7 +100,9 @@
                     <div>
                         <label for="sign_up">Don't have an account?</label>
                         <input name="sign_up" type="submit" value="Sign Up">
+                        <input name="back" type="submit" value="Back">
                     </div>
+                    
                 </form>
             </div>
         </div>
