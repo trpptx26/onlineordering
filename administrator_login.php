@@ -20,7 +20,7 @@ if (isset($_POST["log_in"])){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $conn = new mysqli('localhost','root','','employee');
+    $conn = new mysqli('localhost','root','','employees');
     $sql = "SELECT * FROM employeedatabase WHERE username = '$username'";    
     $result = mysqli_query($conn, $sql);
     $rowvalid = $result->fetch_assoc();
@@ -49,6 +49,18 @@ if (isset($_POST["log_in"])){
         </script>';
     }
 }
+if (isset($_POST["sign_up"])){
+    echo '
+        <script>
+        window.location.href = "administrator_sign_up.php";
+        </script>';
+}
+if (isset($_POST["back"])){
+    echo '
+        <script>
+        window.location.href = "administrator_browser.php";
+        </script>';
+}
 ?>
 <div>
     <img src="https://i.imgur.com/ZamKnxw.png" alt="Casan's Footwear Logo" width="400">
@@ -64,6 +76,11 @@ if (isset($_POST["log_in"])){
                 <!--Log In button -->
                 <input name="log_in" type="submit" value="Log In" id="big_button">
                 <hr>
+
+                <label for="sign_up">Don't have an account?</label>
+                <input name="sign_up" type="submit" value="Register">
+
+                <input name="back" type="submit" value="Back">
         </div>
     </form>
 </div>
