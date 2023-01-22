@@ -13,7 +13,7 @@
 </head>
 <body>
      <?php
-      $conn = new mysqli('localhost','root','','employee');
+      $conn = new mysqli('localhost','root','','employees');
       $sql = "SELECT * FROM employee";    
       $result = mysqli_query($conn, $sql);
 
