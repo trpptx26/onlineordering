@@ -20,7 +20,7 @@ if (isset($_POST["log_in"])){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $conn = new mysqli('localhost','root','','employees');
+    $conn = new mysqli('localhost','root','','employee');
     $sql = "SELECT * FROM employeedatabase WHERE username = '$username'";    
     $result = mysqli_query($conn, $sql);
     $rowvalid = $result->fetch_assoc();
